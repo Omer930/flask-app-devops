@@ -1,10 +1,10 @@
-pipeline {
+  pipeline {
     agent any
 
     stages {
-        stage('CheckOut') {
+        stage('CheckOut2') {
             steps {
-                sh 'checkout from flashapp'
+                sh 'Checkout from flask app'
             }
         }
     }
