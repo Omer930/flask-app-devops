@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('CheckOut') {
             steps {
-                sh 'echo docker file build'
+                sh 'checkout from flashapp'
             }
         }
     }
