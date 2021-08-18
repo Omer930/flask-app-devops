@@ -2,20 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Image Build') {
-            agent { dockerfile true }
+        stage('CheckOut') {
             steps {
                 sh 'echo docker file build'
-            }
-        }
-        stage('Host') {
-            steps {
-                sh 'echo host'
-            }
-        }
-        stage('Sonarscanner') {
-            steps {
-                sh 'echo annas'
             }
         }
     }
