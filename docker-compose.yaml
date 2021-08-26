@@ -1,0 +1,27 @@
+version: '2.2'
+
+services:
+  
+  flaskApp:
+    image: flask-app:v1
+    restart: always
+    ports:
+      - 8090:8090
+    env_file: .env  
+    environment:
+      - FLASKAPP_DB_HOST=db
+      - FLASKAPP_DB_USER=$POSTGRES_USERNAME
+      - FLASKAPP_DB_PASSWORD=$POSTGRES_PASSWORD
+      - FLASKAPP_DB_NAME="flaskapp"
+      - FLASKAPP_DB_PORT=$POSTGREs_PORT
+    
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=$POSTGRES_USERNAME     
+      - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+      - POSTGRES_DATABASE="flaskapp"
+    volumes:
+      - ./docker-compose/postgres:/docker-entrypoint-initdb.d
