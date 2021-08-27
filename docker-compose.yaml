@@ -6,7 +6,7 @@ services:
     image: flask-app:v1
     restart: always
     ports:
-      - 8090:8090
+      - 8090:5000
     env_file: .env  
     environment:
       - FLASKAPP_DB_HOST=db
